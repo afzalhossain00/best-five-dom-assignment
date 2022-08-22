@@ -7,7 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Select your favourite players</title>
     <link rel="stylesheet" href="style.css">
+    <!-- tailwind cdn -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- daisy ui components element -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css">
+    tailwind elements
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 </head>
 
 <body>
@@ -23,133 +28,153 @@
         </div>
     </header>
 
-    <main>
+    <main class="bg-gray-800">
         <!-- All players section -->
         <section class="bg-gray-800">
-            <div class="grid grid-cols-4 gap-4 w-3/4 text-center pt-20 mx-auto">
+            <div class="grid grid-cols-4 gap-4 w-4/5 pt-20 mx-auto">
 
-                <div class="flex justify-center">
+                <div class="flex justify-center text-center">
                     <div class="rounded-lg shadow-lg bg-black max-w-sm">
                         <img class="rounded-t-lg mb-2" src="images/player1.png" alt="" />
-                        </a>
+                        <h5 class="text-white text-2xl font-medium mb-2">Lionel Messi</h5>
+                        <p class="text-gray-400 text-base mb-12">
+                            36 Goals . 120 Assist
+                        </p>
                         <div class="p-4">
-                            <h5 class="text-white text-2xl font-medium mb-2">Lionel Messi</h5>
-                            <p class="text-gray-400 text-base mb-12">
-                                36 Goals . 120 Assist
-                            </p>
-                            <button type="button"
+                            <button onclick="addToClick(this)" type="button"
                                 class=" inline-block px-20 py-2.5 bg-blue-600 text-white font-medium text-2sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Select</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex justify-center">
+                <div class="flex justify-center text-center">
                     <div class="rounded-lg shadow-lg bg-black max-w-sm">
                         <img class="rounded-t-lg mb-2" src="images/player2.png" alt="" />
-                        </a>
+                        <h5 class="text-white text-2xl font-medium mb-2">Neymar Jr</h5>
+                        <p class="text-gray-400 text-base mb-12">
+                            36 Goals . 120 Assist
+                        </p>
                         <div class="p-4">
-                            <h5 class="text-white text-2xl font-medium mb-2">Neymar Jr</h5>
-                            <p class="text-gray-400 text-base mb-12">
-                                36 Goals . 120 Assist
-                            </p>
-                            <button type="button"
+                            <button onclick="addToClick(this)" type="button"
                                 class=" inline-block px-20 py-2.5 bg-blue-600 text-white font-medium text-2sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Select</button>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="flex justify-center">
+                <div class="flex justify-center text-center">
                     <div class="rounded-lg shadow-lg bg-black max-w-sm">
                         <img class="rounded-t-lg mb-2" src="images/player3.png" alt="" />
-                        </a>
+                        <h5 class="text-white text-2xl font-medium mb-2">Kylian Mbappé</h5>
+                        <p class="text-gray-400 text-base mb-12">
+                            36 Goals . 120 Assist
+                        </p>
                         <div class="p-4">
-                            <h5 class="text-white text-2xl font-medium mb-2">Kylian Mbappé</h5>
-                            <p class="text-gray-400 text-base mb-12">
-                                36 Goals . 120 Assist
-                            </p>
-                            <button type="button"
+                            <button onclick="addToClick(this)" type="button"
                                 class=" inline-block px-20 py-2.5 bg-blue-600 text-white font-medium text-2sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Select</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex justify-center">
-                    <div class="rounded-lg shadow-lg bg-black max-w-sm">
-
-                        <div class="p-4">
-                            <h5 class="text-white text-2xl font-medium mb-2">Lionel Messi</h5>
-                            <p class="text-gray-400 text-base mb-12">
-                                36 Goals . 120 Assist
-                            </p>
-                            <button type="button"
-                                class=" inline-block px-20 py-2.5 bg-blue-600 text-white font-medium text-2sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Select</button>
+                    <div class="rounded-lg shadow-lg bg-black max-w-sm px-10">
+                        <h5 id="selected-player" class="text-center text-white text-xl font-medium mb-2 pt-4">
+                            Selected - <span id="total-player-added">0</span></h5>
+                        <div class="overflow-x-auto">
+                            <table class="table">
+                                <!-- head -->
+                                <tbody id="add-players">
+                                    <tr>
+                                        <th>1</th>
+                                        <td>Hart Hagerty</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <div class="flex justify-center">
+
+                <div class="flex justify-center text-center">
                     <div class="rounded-lg shadow-lg bg-black max-w-sm">
                         <img class="rounded-t-lg mb-2" src="images/player4.png" alt="" />
-                        </a>
+                        <h5 class="text-white text-2xl font-medium mb-2">Vítor Machado</h5>
+                        <p class="text-gray-400 text-base mb-12">
+                            36 Goals . 120 Assist
+                        </p>
                         <div class="p-4">
-                            <h5 class="text-white text-2xl font-medium mb-2">Vítor Machado</h5>
-                            <p class="text-gray-400 text-base mb-12">
-                                36 Goals . 120 Assist
-                            </p>
-                            <button type="button"
+                            <button onclick="addToClick(this)" type="button"
                                 class=" inline-block px-20 py-2.5 bg-blue-600 text-white font-medium text-2sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Select</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex justify-center">
+                <div class="flex justify-center text-center">
                     <div class="rounded-lg shadow-lg bg-black max-w-sm">
                         <img class="rounded-t-lg mb-2" src="images/player5.png" alt="" />
-                        </a>
+                        <h5 class="text-white text-2xl font-medium mb-2">Sergio Ramos</h5>
+                        <p class="text-gray-400 text-base mb-12">
+                            36 Goals . 120 Assist
+                        </p>
                         <div class="p-4">
-                            <h5 class="text-white text-2xl font-medium mb-2">Sergio Ramos</h5>
-                            <p class="text-gray-400 text-base mb-12">
-                                36 Goals . 120 Assist
-                            </p>
-                            <button type="button"
+                            <button onclick="addToClick(this)" type="button"
                                 class=" inline-block px-20 py-2.5 bg-blue-600 text-white font-medium text-2sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Select</button>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="flex justify-center">
+                <div class="flex justify-center text-center">
                     <div class="rounded-lg shadow-lg bg-black max-w-sm">
                         <img class="rounded-t-lg mb-2" src="images/player6.png" alt="" />
-                        </a>
+                        <h5 class="text-white text-2xl font-medium mb-2">Renato Sanches</h5>
+                        <p class="text-gray-400 text-base mb-12">
+                            36 Goals . 120 Assist
+                        </p>
                         <div class="p-4">
-                            <h5 class="text-white text-2xl font-medium mb-2">Renato Sanches</h5>
-                            <p class="text-gray-400 text-base mb-12">
-                                36 Goals . 120 Assist
-                            </p>
-                            <button type="button"
+                            <button onclick="addToClick(this)" type="button"
                                 class=" inline-block px-20 py-2.5 bg-blue-600 text-white font-medium text-2sm leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Select</button>
                         </div>
                     </div>
                 </div>
                 <div class="flex justify-center">
                     <div class="rounded-lg shadow-lg bg-black max-w-sm">
-                        <button type="button"
-                            class=" inline-block px-16 py-2.5 bg-blue-600 text-white font-medium text-2sm leading-tight  rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Calculate</button>
-
                         <div class="p-4">
-                            <h5 class="text-white text-2xl font-medium mb-2">Renato Sanches</h5>
-                            <p class="text-gray-400 text-base mb-12">
-                                36 Goals . 120 Assist
-                            </p>
-                            <button type="button"
-                                class=" inline-block px-10 py-2.5 bg-blue-600 text-white font-medium text-2sm leading-tight  rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Calculate
-                                Total</button>
+                            <h3 class="text-center text-white text-2xl font-medium mb-6 pt-4">Budget</h3>
+                            <div class="">
+                                <h5 class="text-left text-gray-400 mb-2 pt-4 inline mr-4">Per Player</h5>
+                                <input class="w-2/4 bg-black text-white pl-2 py-1 border" type="text">
+                            </div>
+                            <div class="pt-4">
+                                <button type="button"
+                                    class="text-center inline-block px-16 py-2.5 bg-blue-600 text-white font-medium text-2sm leading-tight  rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Calculate</button>
+                            </div>
+                            <div class="pt-4 flex">
+                                <h5 class="text-left text-gray-400 mb-2 mr-14">Player Expenses</h5>
+                                <p class="text-gray-400">$00</p>
+                            </div>
+                            <div class="pt-4">
+                                <h5 class="text-left text-gray-400 mb-2 pt-4 inline mr-6">Manager</h5>
+                                <input class="w-2/4 bg-black text-white pl-2 py-1 border" type="text">
+                            </div>
+                            <div class="pt-4">
+                                <h5 class="text-left text-gray-400 mb-2 pt-4 inline mr-10">Coach</h5>
+                                <input class="w-2/4 bg-black text-white pl-2 py-1 border" type="text">
+                            </div>
+                            <div class="pt-4">
+                                <button type="button"
+                                    class=" inline-block px-10 py-2.5 bg-blue-600 text-white font-medium text-2sm leading-tight  rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Calculate
+                                    Total</button>
+                            </div>
+                            <div class="pt-4 flex">
+                                <h5 class="text-left text-gray-400 mb-2 mr-32">Total</h5>
+                                <p class="text-gray-400">$00</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
     <footer class="bg-gray-800 text-center text-white pt-60 pb-10">
         Copyright @ 2022 All Rights Reserved.
