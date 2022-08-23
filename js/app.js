@@ -22,13 +22,26 @@ function playerListDisplay(slectedPlayer) {
         const displayName = playerNamesArray[i].names
         const tr = document.createElement('tr');
         if (i > 4) {
-            return alert('You can not select more than five player');
+            alert('You can not select more than five players');
+            player.disabled = false;
+            return;
         }
         tr.innerHTML = `
                 <th>${i + 1}</th>
                 <td>${displayName}</td>
                 `;
         slectedPlayerList.appendChild(tr);
+
     }
     const selectPlayerNumber = document.getElementById('total-player-added').innerText = playerNamesArray.length;
+    console.log(selectPlayerNumber);
+    return selectPlayerNumber;
+
 }
+
+document.getElementById('btn-calculate').addEventListener('click', function () {
+    const selectPlayerAmount = getInputFieldValueById('per-player-budget')
+    const selectPlayerNumber = playerNamesArray.length;
+    const selectPlayerCalculate = selectPlayerAmount * selectPlayerNumber;
+    setElementValueById('player-expenses', selectPlayerCalculate);
+});
