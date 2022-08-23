@@ -152,20 +152,21 @@
                             </div>
                             <div class="pt-4">
                                 <h5 class="text-left text-gray-400 mb-2 pt-4 inline mr-6">Manager</h5>
-                                <input class="w-2/4 bg-black text-white pl-2 py-1 border" type="text">
+                                <input id="manager-budget" class="w-2/4 bg-black text-white pl-2 py-1 border"
+                                    type="text">
                             </div>
                             <div class="pt-4">
                                 <h5 class="text-left text-gray-400 mb-2 pt-4 inline mr-10">Coach</h5>
-                                <input class="w-2/4 bg-black text-white pl-2 py-1 border" type="text">
+                                <input id="coach-budget" class="w-2/4 bg-black text-white pl-2 py-1 border" type="text">
                             </div>
                             <div class="pt-4">
-                                <button type="button"
+                                <button id="btn-calculate-total" type="button"
                                     class=" inline-block px-10 py-2.5 bg-blue-600 text-white font-medium text-2sm leading-tight  rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Calculate
                                     Total</button>
                             </div>
                             <div class="pt-4 flex">
                                 <h5 class="text-left text-gray-400 mb-2 mr-32">Total</h5>
-                                <p class="text-gray-400">$00</p>
+                                <p class="text-gray-400">$<span id="total-expense">00</span></p>
                             </div>
                         </div>
                     </div>

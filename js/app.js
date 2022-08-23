@@ -1,4 +1,3 @@
-
 const playerNamesArray = [];
 // Player selection
 function addToClick(player) {
@@ -19,7 +18,7 @@ function playerListDisplay(slectedPlayer) {
     slectedPlayerList.innerHTML = '';
 
     for (let i = 0; i < slectedPlayer.length; i++) {
-        const displayName = playerNamesArray[i].names
+        const displayName = playerNamesArray[i].names;
         const tr = document.createElement('tr');
         if (i > 4) {
             alert('You can not select more than five players');
@@ -34,14 +33,32 @@ function playerListDisplay(slectedPlayer) {
 
     }
     const selectPlayerNumber = document.getElementById('total-player-added').innerText = playerNamesArray.length;
-    console.log(selectPlayerNumber);
     return selectPlayerNumber;
-
 }
 
+// calculate player expenses
 document.getElementById('btn-calculate').addEventListener('click', function () {
-    const selectPlayerAmount = getInputFieldValueById('per-player-budget')
-    const selectPlayerNumber = playerNamesArray.length;
-    const selectPlayerCalculate = selectPlayerAmount * selectPlayerNumber;
+    const perPlayer = document.getElementById('add-players');
+    const playersNumber = perPlayer.children.length;
+    const perPlayerBudget = getInputFieldValueById('per-player-budget');
+    const selectPlayerCalculate = perPlayerBudget * playersNumber;
     setElementValueById('player-expenses', selectPlayerCalculate);
+    return selectPlayerCalculate;
+});
+
+// calculate total cost
+document.getElementById('btn-calculate-total').addEventListener('click', function () {
+    const managerBudget = getInputFieldValueById('manager-budget');
+    const coachBudget = getInputFieldValueById('coach-budget');
+    if (Number.isNaN(managerBudget && coachBudget)) {
+        alert('Please provide a valid number');
+        return;
+    }
+    const playerExpenses = document.getElementById('player-expenses');
+    const playerExpensesValueString = playerExpenses.innerText;
+    const playerExpensesValueNumber = parseFloat(playerExpensesValueString);
+
+    const totalCost = coachBudget + managerBudget + playerExpensesValueNumber;
+    setElementValueById('total-expense', totalCost);
+    return totalCost;
 });
